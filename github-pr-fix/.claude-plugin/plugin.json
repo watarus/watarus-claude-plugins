@@ -1,0 +1,12 @@
+{
+  "name": "github-pr-fix",
+  "version": "1.1.2",
+  "description": "Automate GitHub PR comment responses and CI fixes",
+  "author": {
+    "name": "watarus"
+  },
+  "homepage": "https://github.com/watarus/watarus-claude-plugins",
+  "repository": "https://github.com/watarus/watarus-claude-plugins.git",
+  "license": "MIT",
+  "keywords": ["github", "pr", "ci", "automation"]
+}
