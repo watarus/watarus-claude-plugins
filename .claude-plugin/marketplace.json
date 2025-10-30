@@ -1,11 +1,15 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "watarus-plugins",
-  "version": "1.0.0",
   "marketplaceVersion": "1.0",
   "displayName": "Watarus Claude Plugins",
-  "description": "Personal collection of Claude Code plugins for development workflow automation",
   "owner": {
-    "name": "watarus"
+    "name": "watarus",
+    "url": "https://github.com/watarus"
+  },
+  "metadata": {
+    "description": "Personal collection of Claude Code plugins for development workflow automation",
+    "version": "1.0.0"
   },
   "plugins": [
     {
@@ -13,6 +17,7 @@
       "version": "1.1.2",
       "description": "Automate GitHub PR comment responses and CI fixes",
       "source": "./github-pr-fix",
+      "license": "MIT",
       "keywords": ["github", "pr", "ci", "automation"],
       "author": {
         "name": "watarus"
