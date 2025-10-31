@@ -29,7 +29,10 @@ Get the PR associated with the current branch and repository information:
 !gh pr view --json url,number,title,state,headRepositoryOwner,baseRepository
 ```
 
-Extract the owner and repo name from the repository information for later use with GitHub API.
+Extract and store the following values from the response for later use:
+- **PR Number**: Extract from `number` field - REQUIRED for all API calls
+- **Owner**: Extract from repository owner
+- **Repo**: Extract from repository name
 
 If no PR exists, inform the user and exit. Otherwise, display the PR information:
 - PR #[number]: [title]
@@ -37,7 +40,9 @@ If no PR exists, inform the user and exit. Otherwise, display the PR information
 - State: [state]
 - Repository: [owner]/[repo]
 
-Store these values for use in later phases (especially for posting replies).
+**IMPORTANT**: Save the PR number, owner, and repo name. These are required for:
+- Step 3.4: Posting comment replies (PR number is part of the API path)
+- All GitHub API calls that reference this PR
 
 ---
 
@@ -168,10 +173,10 @@ For each comment requiring a reply, use the appropriate reply method based on co
 Use GitHub API to reply to the specific comment thread:
 
 ```bash
-!gh api repos/[OWNER]/[REPO]/pulls/comments/[COMMENT_ID]/replies -f body="[reply message]"
+!gh api repos/[OWNER]/[REPO]/pulls/[PR_NUMBER]/comments/[COMMENT_ID]/replies -f body="[reply message]"
 ```
 
-This creates a threaded reply directly on the review comment.
+This creates a threaded reply directly on the review comment. **Note:** PR_NUMBER is required in the endpoint.
 
 **For issue comments (general PR comments):**
 
@@ -186,8 +191,10 @@ Use @mention to reply since issue comments don't support threading:
 Review the JSON from pr-comment-handler agent. For each comment with a reply:
 
 1. Check the `comment_type` field
-2. If `"review_comment"`: Use `gh api repos/.../pulls/comments/[id]/replies`
-3. If `"issue_comment"`: Use `gh pr comment` with @mention
+2. If `"review_comment"`: Use `gh api repos/[OWNER]/[REPO]/pulls/[PR_NUMBER]/comments/[COMMENT_ID]/replies -f body="[reply]"`
+   - Must include PR_NUMBER in the path (from Step 1.2)
+   - COMMENT_ID comes from the comment's `id` field in the JSON
+3. If `"issue_comment"`: Use `gh pr comment [PR_NUMBER] --body "@[author] [reply message]"`
 4. Use the `reply` text from the JSON output
 
 ---
