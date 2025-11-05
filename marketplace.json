@@ -1,6 +1,6 @@
 {
   "name": "watarus-claude-plugins",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "marketplaceVersion": "1.0",
   "displayName": "Watarus Claude Plugins",
   "description": "A collection of Claude Code plugins for enhanced development workflows",
