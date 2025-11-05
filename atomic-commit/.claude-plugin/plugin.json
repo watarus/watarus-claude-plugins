@@ -1,0 +1,12 @@
+{
+  "name": "atomic-commit",
+  "version": "1.0.0",
+  "description": "Analyze changes and create atomic, compilable commits",
+  "author": {
+    "name": "watarus"
+  },
+  "homepage": "https://github.com/watarus/watarus-claude-plugins",
+  "repository": "https://github.com/watarus/watarus-claude-plugins.git",
+  "license": "MIT",
+  "keywords": ["git", "commit", "atomic", "quality"]
+}
