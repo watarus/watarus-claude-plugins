@@ -1,0 +1,12 @@
+{
+  "name": "adr-toolkit",
+  "version": "1.0.0",
+  "description": "Analyze codebase architecture and generate Architecture Decision Records (ADRs) using multi-model analysis",
+  "author": {
+    "name": "watarus"
+  },
+  "homepage": "https://github.com/watarus/watarus-claude-plugins",
+  "repository": "https://github.com/watarus/watarus-claude-plugins.git",
+  "license": "MIT",
+  "keywords": ["adr", "architecture", "documentation", "decision-records", "analysis"]
+}
