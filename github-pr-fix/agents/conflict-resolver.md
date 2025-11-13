@@ -31,7 +31,28 @@ If conflicts exist, fetch the latest state of the base branch:
 git fetch origin [BASE_BRANCH]
 ```
 
-**3. Attempt Rebase**
+**3. Create Backup Branch**
+
+Before attempting rebase, create a backup of the current branch to ensure safety:
+
+```bash
+# Get current branch name
+CURRENT_BRANCH=$(git branch --show-current)
+
+# Create backup branch with timestamp
+BACKUP_BRANCH="backup-${CURRENT_BRANCH}-$(date +%Y%m%d-%H%M%S)"
+git branch $BACKUP_BRANCH
+
+# Inform user about backup
+echo "Created backup branch: $BACKUP_BRANCH"
+```
+
+This ensures that if the rebase goes wrong or needs to be aborted, you can always return to the original state with:
+```bash
+git reset --hard $BACKUP_BRANCH
+```
+
+**4. Attempt Rebase**
 
 Try to rebase the current branch onto the latest base:
 
@@ -45,7 +66,7 @@ git rebase origin/[BASE_BRANCH]
 - **Conflicts:** Rebase stops with conflict markers
 - **Error:** Other issues (diverged history, uncommitted changes, etc.)
 
-**4. Analyze Conflicts (if any)**
+**5. Analyze Conflicts (if any)**
 
 If conflicts occur, examine the conflicted files:
 
@@ -67,7 +88,7 @@ For each conflicted file:
   - `RENAME_CONFLICT` - File renamed on one side
   - `COMPLEX` - Multiple types or unclear resolution
 
-**5. Resolve Conflicts**
+**6. Resolve Conflicts**
 
 For each conflict:
 
@@ -115,7 +136,7 @@ For each conflict:
    git rebase --continue
    ```
 
-**6. Verify Resolution**
+**7. Verify Resolution**
 
 After successful rebase:
 
@@ -170,6 +191,7 @@ Deliver a structured JSON report with this format:
   },
   "actions_taken": [
     "Fetched latest origin/main",
+    "Created backup branch: backup-feature-branch-20250113-143022",
     "Rebased current branch onto origin/main",
     "Resolved 4 conflicts in 3 files",
     "Verified build passes"
@@ -212,9 +234,11 @@ Set `overall_confidence: "CANNOT_AUTO_RESOLVE"` when:
 
 **Important Notes:**
 
+- **Backup branch:** Always created before rebase with naming pattern `backup-[branch-name]-[timestamp]`. Can be used to restore original state if needed: `git reset --hard [backup-branch-name]`
 - Always use `git push --force-with-lease` (NEVER `--force`) to push rebased branch
 - Rebase rewrites history - only do this on feature branches, not shared branches
 - After rebase, CI will re-run - conflicts might cause test failures
 - Significant conflict resolutions may require reviewer attention
+- Backup branches are local only - delete them after confirming successful rebase: `git branch -d [backup-branch-name]`
 
 Return ONLY the JSON output, no additional commentary.
