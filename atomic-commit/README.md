@@ -9,7 +9,6 @@
 - **Revertable**: 各コミットは独立してロールバック可能
 - **Intelligent Analysis**: AI エージェントが変更を分析し、最適なコミット戦略を提案
 - **Dependency Aware**: ファイル間の依存関係を考慮した順序でコミット
-- **Safe by Default**: バックアップブランチを自動作成
 
 ## インストール
 
@@ -58,14 +57,12 @@ ln -s /path/to/watarus-claude-plugins/atomic-commit ~/.claude/plugins/atomic-com
    - 必要に応じて修正
 
 4. **コミットの実行**
-   - バックアップブランチを作成
    - 各コミットグループを順番に処理
    - ビルド/コンパイルチェックを実行
    - 成功したらコミット、失敗したら対処を選択
 
 5. **完了報告**
    - 作成されたコミットのサマリー
-   - バックアップブランチの情報
 
 ## 使用例
 
@@ -200,21 +197,6 @@ Conventional Commits 形式を使用:
 1. 一部の変更を手動でコミット
 2. 残りの変更で `/atomic-commit` を再実行
 3. または、エージェントの提案を参考に手動でコミット
-
-### バックアップから復元
-
-問題が発生した場合、バックアップブランチから復元できます:
-
-```bash
-# バックアップブランチを確認
-git branch | grep atomic-commit-backup
-
-# 復元
-git reset --hard atomic-commit-backup-[timestamp]
-
-# バックアップブランチを削除
-git branch -d atomic-commit-backup-[timestamp]
-```
 
 ## 制限事項
 

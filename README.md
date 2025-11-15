@@ -31,7 +31,6 @@ Analyze changes and create atomic, compilable commits.
 - ✅ Intelligent change analysis and grouping
 - ✅ Atomic commits that pass build checks
 - ✅ Commit order based on dependency analysis
-- ✅ Safety backup branches
 - ✅ Build verification for each commit
 
 **[View Documentation →](./atomic-commit/README.md)**
@@ -76,6 +75,12 @@ Generate table-driven tests for Golang functions and methods using Given-When-Th
 **[View Documentation →](./skills/go-table-test/SKILL.md)**
 
 ---
+
+## Requirements
+
+- [GitHub CLI](https://cli.github.com/) installed and authenticated
+- Claude Code with plugin support
+- An active GitHub account with repository access
 
 ## Installation
 
@@ -136,20 +141,6 @@ The plugin will:
 4. Ask for your confirmation before pushing
 5. Provide a comprehensive summary
 
-## Requirements
-
-- [GitHub CLI](https://cli.github.com/) installed and authenticated
-- Claude Code with plugin support
-- An active GitHub account with repository access
-
-## Contributing
-
-Found a bug or want to suggest improvements?
-
-1. Open an issue in this repository
-2. Submit a pull request with your changes
-3. Share feedback on usage and edge cases
-
 ### atomic-commit
 
 The `atomic-commit` plugin helps you create clean, atomic commits that are independently compilable and revertable:
@@ -157,8 +148,7 @@ The `atomic-commit` plugin helps you create clean, atomic commits that are indep
 1. **Analyze changes** - Intelligently groups related changes
 2. **Determine order** - Respects dependencies between changes
 3. **Verify builds** - Each commit must pass compilation
-4. **Safety first** - Creates backup branches before committing
-5. **Clear messages** - Generates meaningful commit messages
+4. **Clear messages** - Generates meaningful commit messages
 
 **Usage:**
 
@@ -289,6 +279,14 @@ func TestCreateUser(t *testing.T) {
 ```
 
 ---
+
+## Contributing
+
+Found a bug or want to suggest improvements?
+
+1. Open an issue in this repository
+2. Submit a pull request with your changes
+3. Share feedback on usage and edge cases
 
 ## License
 

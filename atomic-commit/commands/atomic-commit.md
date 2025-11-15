@@ -123,17 +123,7 @@ If the user wants to modify, ask for specific changes and re-run the agent if ne
 
 ## Phase 3: Execute Commit Plan
 
-### Step 3.1: Setup Safety Measures
-
-Before starting, create a safety branch:
-
-```bash
-!git branch atomic-commit-backup-$(date +%s)
-```
-
-Inform the user: "Created backup branch for safety. You can restore from this branch if needed."
-
-### Step 3.2: Execute Each Commit
+### Step 3.1: Execute Each Commit
 
 For each commit in the plan:
 
@@ -209,22 +199,9 @@ Verify:
 ### Build Status:
 - All commits passed compilation ✓
 
-### Backup:
-- Safety branch: atomic-commit-backup-[timestamp]
-
 ### Next Steps:
 1. Review commits: `git log -p -[N]`
 2. Push to remote: `git push`
-3. Delete backup: `git branch -d atomic-commit-backup-[timestamp]`
-```
-
-### Step 4.2: Cleanup (Optional)
-
-Ask the user: "Would you like to delete the backup branch now?"
-
-If yes:
-```bash
-!git branch -d atomic-commit-backup-[timestamp]
 ```
 
 ---
@@ -239,20 +216,18 @@ Before completing, verify:
 - ✓ Each commit has a meaningful message
 - ✓ Commit order respects dependencies
 - ✓ User has been informed of all actions
-- ✓ Safety backup was created
 - ✓ Final state is clean or expected
 
 ---
 
 ## Key Principles
 
-1. **Safety First** - Always create a backup branch before making commits
-2. **Verify Everything** - Check build status after each commit
-3. **Atomic Units** - Each commit should be independently functional
-4. **Clear Communication** - Keep user informed of progress and any issues
-5. **User Control** - Always ask before proceeding with the plan
-6. **Fail Gracefully** - Handle build failures and allow recovery
-7. **Clean State** - Ensure final state is clean and expected
+1. **Verify Everything** - Check build status after each commit
+2. **Atomic Units** - Each commit should be independently functional
+3. **Clear Communication** - Keep user informed of progress and any issues
+4. **User Control** - Always ask before proceeding with the plan
+5. **Fail Gracefully** - Handle build failures and allow recovery
+6. **Clean State** - Ensure final state is clean and expected
 
 ---
 
@@ -270,7 +245,6 @@ Before completing, verify:
 
 ### Partial Completion
 - If process is interrupted, report completed commits
-- Remind user of backup branch
 - Offer to continue from where it stopped
 
 ---
@@ -279,6 +253,5 @@ Before completing, verify:
 
 - This command does NOT push to remote by default
 - User must explicitly push commits after review
-- Backup branch is kept until user deletes it
 - All build checks must pass before committing
 - The command respects user's git config (commit message style, etc.)
