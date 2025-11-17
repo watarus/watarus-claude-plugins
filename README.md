@@ -55,6 +55,25 @@ Analyze codebase architecture and generate Architecture Decision Records (ADRs) 
 
 ---
 
+### language-specialists
+
+Collection of language specialist agents including Next.js and Go experts.
+
+**Version:** 1.0.0
+
+**Features:**
+- ✅ Next.js 14+ App Router expert agent
+- ✅ Go 1.21+ concurrent programming expert agent
+- ✅ Performance optimization and best practices
+- ✅ Production-ready code patterns
+- ✅ Automatic triggering based on project context
+
+**[View Documentation →](./language-specialists/README.md)**
+
+**License:** MIT License (Original agents from [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents))
+
+---
+
 ## Available Skills
 
 ### go-table-test
@@ -101,6 +120,9 @@ Generate table-driven tests for Golang functions and methods using Given-When-Th
 
 # Install adr-toolkit
 /plugin install adr-toolkit
+
+# Install language-specialists
+/plugin install language-specialists
 ```
 
 ### Install Skills
@@ -186,6 +208,69 @@ The plugin will:
 3. Run parallel multi-model analysis
 4. Synthesize results with attribution
 5. Generate ADR with automatic numbering
+
+---
+
+### language-specialists
+
+The `language-specialists` plugin provides expert agents for specific programming languages and frameworks:
+
+**Included Agents:**
+
+#### nextjs-developer
+Expert Next.js developer mastering Next.js 14+ with App Router and full-stack features.
+
+**Specializations:**
+- Server Components and Client Components
+- Server Actions and data mutations
+- Performance optimization (Core Web Vitals > 90)
+- SEO optimization (score > 95)
+- Edge Runtime and streaming SSR
+- Full-stack features (API routes, authentication, etc.)
+
+**Automatically triggers when:**
+- Working on Next.js projects
+- Implementing App Router features
+- Optimizing performance or SEO
+- Building server-side functionality
+
+#### golang-pro
+Expert Go developer specializing in high-performance systems and concurrent programming.
+
+**Specializations:**
+- Idiomatic Go patterns and best practices
+- Concurrent programming with goroutines and channels
+- Microservices architecture (gRPC, REST APIs)
+- Performance optimization with profiling
+- Table-driven tests with testify
+- Cloud-native development (Kubernetes, containers)
+
+**Automatically triggers when:**
+- Working on Go projects
+- Implementing concurrent systems
+- Building microservices or APIs
+- Writing tests or benchmarks
+
+**Usage:**
+
+These agents activate automatically based on your project context:
+
+```bash
+# They trigger automatically when you work on relevant code
+# For example:
+# - "Implement a new API endpoint in Next.js"
+# - "Add concurrent processing to this Go service"
+
+# You can also manually invoke agents
+/agents
+# Then select the desired agent
+```
+
+**License Note:**
+
+Original agents are from [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents)
+- Copyright © 2024 Awesome Claude Subagents Contributors
+- Licensed under MIT License
 
 ---
 

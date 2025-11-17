@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Personal collection of Claude Code plugins and skills for development workflow automation",
-    "version": "1.3.0"
+    "version": "1.4.0"
   },
   "plugins": [
     {
@@ -36,6 +36,21 @@
       "keywords": ["adr", "architecture", "documentation", "decision-records", "analysis"],
       "author": {
         "name": "watarus"
+      }
+    },
+    {
+      "name": "language-specialists",
+      "version": "1.0.0",
+      "description": "Collection of language specialist agents including Next.js and Go experts",
+      "source": "./language-specialists",
+      "keywords": ["nextjs", "golang", "agents", "language-specialists"],
+      "author": {
+        "name": "watarus"
+      },
+      "license": {
+        "type": "MIT",
+        "source": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+        "copyright": "© 2024 Awesome Claude Subagents Contributors"
       }
     },
     {
