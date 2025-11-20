@@ -47,11 +47,7 @@
       "author": {
         "name": "watarus"
       },
-      "license": {
-        "type": "MIT",
-        "source": "https://github.com/VoltAgent/awesome-claude-code-subagents",
-        "copyright": "© 2024 Awesome Claude Subagents Contributors"
-      }
+      "license": "MIT"
     },
     {
       "name": "go-skills",
