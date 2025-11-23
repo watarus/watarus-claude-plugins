@@ -57,6 +57,16 @@
       "skills": [
         "./skills/go-table-test"
       ]
+    },
+    {
+      "name": "dev-utils",
+      "description": "Collection of development utility skills including jq-based JSON file reading and git rebase guide",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/jq-json-reader",
+        "./skills/git-rebase-guide"
+      ]
     }
   ]
 }
