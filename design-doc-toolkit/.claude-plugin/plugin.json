@@ -1,0 +1,12 @@
+{
+  "name": "design-doc-toolkit",
+  "version": "1.0.0",
+  "description": "Generate comprehensive system design documents with multi-model analysis for features, APIs, and architecture",
+  "author": {
+    "name": "watarus"
+  },
+  "homepage": "https://github.com/watarus/watarus-claude-plugins",
+  "repository": "https://github.com/watarus/watarus-claude-plugins.git",
+  "license": "MIT",
+  "keywords": ["design-doc", "system-design", "documentation", "architecture", "technical-specification"]
+}

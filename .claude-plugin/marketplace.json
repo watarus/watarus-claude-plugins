@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Personal collection of Claude Code plugins and skills for development workflow automation",
-    "version": "1.4.0"
+    "version": "1.5.0"
   },
   "plugins": [
     {
@@ -44,6 +44,17 @@
       "description": "Collection of language specialist agents including Next.js and Go experts",
       "source": "./language-specialists",
       "keywords": ["nextjs", "golang", "agents", "language-specialists"],
+      "author": {
+        "name": "watarus"
+      },
+      "license": "MIT"
+    },
+    {
+      "name": "design-doc-toolkit",
+      "version": "1.0.0",
+      "description": "Generate comprehensive system design documents with multi-model analysis",
+      "source": "./design-doc-toolkit",
+      "keywords": ["design-doc", "system-design", "documentation", "architecture", "technical-specification"],
       "author": {
         "name": "watarus"
       },
