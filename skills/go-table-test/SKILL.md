@@ -1,6 +1,6 @@
 ---
 name: go-table-test
-description: Generate table-driven tests for Golang functions and methods using Given-When-Then structure. This skill should be used when asked to write tests for Go functions, methods, or files. It creates or updates *_test.go files with comprehensive table-driven tests that follow best practices including mock setup, database preparation, and complex assertions.
+description: Generate table-driven tests for Golang functions and methods using Given-When-Then structure. This skill should be used when asked to write tests for Go functions, methods, or files. It creates or updates *_test.go files with comprehensive table-driven tests that follow best practices including mock setup, database preparation, and complex assertions. Use this skill when working on .go files and asked to "write tests", "add tests", or "create test cases" - even without explicitly mentioning "Go" since the file context makes it clear.
 ---
 
 # Go Table Test
