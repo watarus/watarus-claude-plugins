@@ -74,6 +74,24 @@ Collection of language specialist agents including Next.js and Go experts.
 
 ---
 
+### design-doc-toolkit
+
+Generate comprehensive system design documents with multi-model AI analysis.
+
+**Version:** 1.0.0
+
+**Features:**
+- ✅ Multi-model AI analysis (Sonnet, Opus, Codex)
+- ✅ Multiple document types (New Feature, Refactoring, API, Data Model)
+- ✅ Codebase-aware pattern analysis
+- ✅ Industry-standard document format
+- ✅ Interactive design decision workflow
+- ✅ Parallel model execution
+
+**[View Documentation →](./design-doc-toolkit/README.md)**
+
+---
+
 ## Available Skills
 
 ### go-table-test
@@ -123,6 +141,9 @@ Generate table-driven tests for Golang functions and methods using Given-When-Th
 
 # Install language-specialists
 /plugin install language-specialists
+
+# Install design-doc-toolkit
+/plugin install design-doc-toolkit
 ```
 
 ### Install Skills
@@ -271,6 +292,38 @@ These agents activate automatically based on your project context:
 Original agents are from [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents)
 - Copyright © 2024 Awesome Claude Subagents Contributors
 - Licensed under MIT License
+
+---
+
+### design-doc-toolkit
+
+The `design-doc-toolkit` plugin creates comprehensive system design documents using multi-model AI analysis:
+
+1. **Document type selection** - New Feature, Refactoring, API Design, Data Model
+2. **Model selection** - Choose Sonnet (fast), Opus (deep), or Codex (technical)
+3. **Codebase analysis** - Understand existing patterns and conventions
+4. **Design decisions** - Interactive workflow for key choices
+5. **Document generation** - Industry-standard format with all sections
+
+**Usage:**
+
+```bash
+# Create design document for a new feature
+/create-design-doc user authentication system
+
+# Design API endpoints
+/create-design-doc payment processing API
+
+# Plan refactoring
+/create-design-doc migrate to microservices
+```
+
+The plugin will:
+1. Ask which document type and models to use
+2. Gather requirements and analyze existing code
+3. Run parallel multi-model analysis
+4. Guide through design decisions
+5. Generate comprehensive design document
 
 ---
 
