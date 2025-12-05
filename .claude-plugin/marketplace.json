@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Personal collection of Claude Code plugins and skills for development workflow automation",
-    "version": "1.5.0"
+    "version": "1.6.0"
   },
   "plugins": [
     {
@@ -55,6 +55,17 @@
       "description": "Generate comprehensive system design documents with multi-model analysis",
       "source": "./design-doc-toolkit",
       "keywords": ["design-doc", "system-design", "documentation", "architecture", "technical-specification"],
+      "author": {
+        "name": "watarus"
+      },
+      "license": "MIT"
+    },
+    {
+      "name": "pre-ci-check",
+      "version": "1.0.0",
+      "description": "Run CI checks locally in parallel before pushing to verify CI will pass",
+      "source": "./pre-ci-check",
+      "keywords": ["ci", "pre-commit", "lint", "typecheck", "test", "build", "validation"],
       "author": {
         "name": "watarus"
       },

@@ -92,6 +92,23 @@ Generate comprehensive system design documents with multi-model AI analysis.
 
 ---
 
+### pre-ci-check
+
+Run CI checks locally in parallel before pushing to verify CI will pass.
+
+**Version:** 1.0.0
+
+**Features:**
+- ✅ Auto-detect CI platforms (GitHub Actions, CircleCI, GitLab CI, etc.)
+- ✅ Parallel execution via 4 specialized sub-agents
+- ✅ Lint, typecheck, test, and build verification
+- ✅ Aggregated results with fix suggestions
+- ✅ Auto-fix commands for common issues
+
+**[View Documentation →](./pre-ci-check/README.md)**
+
+---
+
 ## Available Skills
 
 ### go-table-test
@@ -144,6 +161,9 @@ Generate table-driven tests for Golang functions and methods using Given-When-Th
 
 # Install design-doc-toolkit
 /plugin install design-doc-toolkit
+
+# Install pre-ci-check
+/plugin install pre-ci-check
 ```
 
 ### Install Skills

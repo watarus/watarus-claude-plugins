@@ -1,0 +1,28 @@
+{
+  "name": "pre-ci-check",
+  "version": "1.0.0",
+  "description": "Pre-CI validation tool that runs lint, typecheck, test, and build checks locally in parallel before pushing to verify CI will pass",
+  "author": {
+    "name": "Wataru Sakamoto"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ci",
+    "pre-commit",
+    "lint",
+    "typecheck",
+    "test",
+    "build",
+    "github-actions",
+    "validation"
+  ],
+  "commands": [
+    "./commands/pre-ci-check.md"
+  ],
+  "agents": [
+    "./agents/ci-lint-checker.md",
+    "./agents/ci-type-checker.md",
+    "./agents/ci-test-runner.md",
+    "./agents/ci-build-checker.md"
+  ]
+}
