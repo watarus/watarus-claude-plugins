@@ -166,6 +166,32 @@ For each required fix:
 
 ### Step 3.4: Post Comment Replies
 
+**Ask user for confirmation before posting replies:**
+
+First, display all pending replies to the user:
+
+```markdown
+## Pending Comment Replies
+
+| # | Author | Comment Summary | Reply Preview |
+|---|--------|-----------------|---------------|
+| 1 | @user1 | [brief summary] | [first 50 chars of reply...] |
+| 2 | @user2 | [brief summary] | [first 50 chars of reply...] |
+```
+
+Use the AskUserQuestion tool to ask:
+- Question: "Do you want to post these comment replies?"
+- Options:
+  - "Yes, post all replies" - Post all pending replies
+  - "Let me review each one" - Show full reply text for each and confirm individually
+  - "No, skip replies" - Skip posting replies entirely
+
+If user selects "Let me review each one", show each reply in full and ask for confirmation individually before posting.
+
+Only proceed with posting replies if user confirms.
+
+---
+
 For each comment requiring a reply, use the appropriate reply method based on comment type:
 
 **For review comments (code-specific comments):**
@@ -289,5 +315,6 @@ Before completing, verify:
 - If conflicts cannot be auto-resolved: Report conflicts and suggest manual resolution
 - If rebase fails: Abort rebase and inform user of the issue
 - If user declines push: Stop execution, inform user that changes are committed locally but not pushed
+- If user skips replies: Note in summary that replies were not posted, user can manually post them later
 - If CI still failing: Report status and suggest reviewing logs manually
 - If force push fails: Check if branch is protected or if --force-with-lease safety check failed

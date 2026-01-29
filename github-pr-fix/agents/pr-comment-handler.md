@@ -71,6 +71,7 @@ For each comment requiring action:
 
 **For REPLY_ONLY or BOTH:**
 - Draft a professional, helpful reply
+- **Always start the reply with `@{author}` to mention the commenter** (e.g., `@reviewer-name Thanks for the feedback...`)
 - Address the specific concern raised
 - Explain your reasoning if declining a suggestion
 - Keep tone collaborative and appreciative
@@ -116,7 +117,7 @@ Deliver a structured JSON report with this format:
       "action": "BOTH",
       "priority": "HIGH",
       "analysis": "Brief explanation of what the reviewer wants",
-      "reply": "Draft reply text (if applicable)",
+      "reply": "@username Draft reply text (if applicable)",
       "code_changes": {
         "files": ["path/to/file.js"],
         "description": "Detailed description of changes needed",
