@@ -196,10 +196,10 @@ For each comment requiring a reply, use the appropriate reply method based on co
 
 **For review comments (code-specific comments):**
 
-Use GitHub API to reply to the specific comment thread:
+Use GitHub API to reply to the specific comment thread. **Always @mention the original author** so that bots (e.g., greptile) and users receive notifications:
 
 ```bash
-!gh api repos/[OWNER]/[REPO]/pulls/[PR_NUMBER]/comments/[COMMENT_ID]/replies -f body="[reply message]"
+!gh api repos/[OWNER]/[REPO]/pulls/[PR_NUMBER]/comments/[COMMENT_ID]/replies -f body="@[author] [reply message]"
 ```
 
 This creates a threaded reply directly on the review comment. **Note:** PR_NUMBER is required in the endpoint.
@@ -217,9 +217,10 @@ Use @mention to reply since issue comments don't support threading:
 Review the JSON from pr-comment-handler agent. For each comment with a reply:
 
 1. Check the `comment_type` field
-2. If `"review_comment"`: Use `gh api repos/[OWNER]/[REPO]/pulls/[PR_NUMBER]/comments/[COMMENT_ID]/replies -f body="[reply]"`
+2. If `"review_comment"`: Use `gh api repos/[OWNER]/[REPO]/pulls/[PR_NUMBER]/comments/[COMMENT_ID]/replies -f body="@[author] [reply]"`
    - Must include PR_NUMBER in the path (from Step 1.2)
    - COMMENT_ID comes from the comment's `id` field in the JSON
+   - Always @mention the original author for bot/notification compatibility
 3. If `"issue_comment"`: Use `gh pr comment [PR_NUMBER] --body "@[author] [reply message]"`
 4. Use the `reply` text from the JSON output
 
