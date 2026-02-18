@@ -22,9 +22,11 @@ gh pr view [PR_NUMBER] --json mergeable,mergeStateStatus,baseRefName
 - `CONFLICTING` - Has merge conflicts
 - `UNKNOWN` - Status unclear, needs investigation
 
+**IMPORTANT:** If the PR is `MERGEABLE` (no conflicts), skip steps 2-7 entirely. Do NOT rebase. Just report the status and return.
+
 **2. Fetch Latest Base Branch**
 
-If conflicts exist, fetch the latest state of the base branch:
+If conflicts exist (`CONFLICTING` or `UNKNOWN`), fetch the latest state of the base branch (from `baseRefName`, NOT `main`):
 
 ```bash
 # Get the base branch name from step 1
@@ -166,7 +168,7 @@ Deliver a structured JSON report with this format:
   "conflict_status": {
     "has_conflicts": true,
     "mergeable": "CONFLICTING",
-    "base_branch": "main",
+    "base_branch": "[BASE_BRANCH from baseRefName]",
     "conflict_detected": true
   },
   "rebase_attempted": true,
@@ -190,9 +192,9 @@ Deliver a structured JSON report with this format:
     "verification_passed": true
   },
   "actions_taken": [
-    "Fetched latest origin/main",
+    "Fetched latest origin/[BASE_BRANCH]",
     "Created backup branch: backup-feature-branch-20250113-143022",
-    "Rebased current branch onto origin/main",
+    "Rebased current branch onto origin/[BASE_BRANCH]",
     "Resolved 4 conflicts in 3 files",
     "Verified build passes"
   ],
