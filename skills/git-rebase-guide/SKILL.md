@@ -48,6 +48,37 @@ Before starting rebase:
    ```bash
    git stash  # if there are uncommitted changes
    ```
+4. **Count commits** — if many (≈5+), squash first (see next section)
+   ```bash
+   git log --oneline main..HEAD | wc -l
+   ```
+
+## Squash First When There Are Many Commits
+
+**When rebasing onto an updated base branch with many commits, squash first, then rebase.**
+
+Why: rebasing N commits onto an updated main forces you to resolve conflicts up to N times — once per commit. Squashing into a single (or few) logical commits collapses conflict resolution into one round, and the final history stays clean.
+
+**Threshold:** if `git log --oneline main..HEAD` shows roughly 5+ commits — especially WIP/fix-typo style commits — squash first.
+
+**Workflow:**
+
+```bash
+# 1. Backup (MANDATORY)
+git branch backup-$(git branch --show-current)-$(date +%Y%m%d%H%M%S)
+
+# 2. Squash locally first (do NOT pull main yet — squash on the current base)
+git rebase -i $(git merge-base HEAD main)
+# In editor: keep first commit as 'pick', change rest to 'fixup' (or 'squash')
+# Save and close
+
+# 3. Now update main and rebase the squashed commit
+git fetch origin
+git rebase origin/main
+# Conflicts (if any) resolved once, not N times
+```
+
+**When NOT to squash first:** commits are already logically separated and worth preserving in history (e.g., reviewable atomic commits in a long-lived PR).
 
 ## Core Operations
 
@@ -359,11 +390,12 @@ git rebase main
 ## Best Practices
 
 1. **Always backup before rebase** - Create a backup branch
-2. **Never rebase shared branches** - Only rebase your own feature branches
-3. **Use --force-with-lease** - Safer than --force when pushing
-4. **Rebase often** - Smaller rebases are easier than big ones
-5. **Clean up before PR** - Squash WIP commits, keep logical commits
-6. **Test after rebase** - Run tests to ensure nothing broke
+2. **Squash before rebasing many commits** - Resolve conflicts once instead of N times
+3. **Never rebase shared branches** - Only rebase your own feature branches
+4. **Use --force-with-lease** - Safer than --force when pushing
+5. **Rebase often** - Smaller rebases are easier than big ones
+6. **Clean up before PR** - Squash WIP commits, keep logical commits
+7. **Test after rebase** - Run tests to ensure nothing broke
 
 ## Quick Reference
 
